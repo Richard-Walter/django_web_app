@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('blog/', include('blog.urls')),
 
-    //make blog url the home page
+    # make blog url the home page
     path('', include('blog.urls')),
 ]
