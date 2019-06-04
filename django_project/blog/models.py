@@ -7,9 +7,15 @@ from django.contrib.auth.models import User
 # Each class is going to be its own table in the database
 # Advantage of this - you need to no SQL to create the Post database
 
+
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)  #delete posts if the user is deleted
-
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    objects = models.Manager()
+    
+    def __str__(self):
+        return self.title
